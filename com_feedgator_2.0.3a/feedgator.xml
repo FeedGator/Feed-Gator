@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="component" version="1.5.0">
+ <name>FeedGator</name>
+ <creationDate>2008 12 08</creationDate>
+ <author>Stephen Simmons / Jozef Kapusciarz / Jeremy Edminston / Remco Boom / Stephane Koenig and others</author>
+ <authorEmail>kontakt@mrjozo.net</authorEmail>
+ <authorUrl>joomlacode.org/gf/project/feedgator  |  phlooid.com | mrjozo.net</authorUrl>
+ <copyright>Copyright 2005-2008 Stephen Simmons &amp; Jozef Kapusciarz. All rights reserved!</copyright>
+ <version>2.0.3a</version>
+ <description>FeedGator aggregates and imports RSS news feed content into a Joomla! database</description>
+ <files folder="site">
+  <filename>index.html</filename>
+  <filename>feedgator.php</filename>
+ </files>
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">uninstall.sql</file>
+		</sql>
+	</uninstall>
+ <administration>
+  <menu>Feed Gator</menu>
+ <submenu>
+			<menu task="feeds">Manage Feeds</menu>
+			<menu task="about">About Feed Gator</menu>
+  </submenu>
+  <files folder="admin">
+   <filename>index.html</filename>
+   <filename>admin.feedgator.php</filename>
+   <filename>cron.feedgator.php</filename>
+   <filename>config.xml</filename>
+   <filename>controller.php</filename>
+   <filename>install.sql</filename>
+   <filename>uninstall.sql</filename>
+   <filename>toolbar.feedgator.html.php</filename>
+   <filename>toolbar.feedgator.php</filename>
+   	<filename>css/styles.css</filename>
+	<filename>inc/ignore.txt</filename>
+	<filename>inc/ignore_ascii7.txt</filename>
+	<filename>inc/simplepie/simplepie.inc</filename>
+	<filename>inc/simplepie/LICENSE.txt</filename>
+	<filename>inc/xajax.inc.php</filename>
+	<filename>inc/xajaxResponse.inc.php</filename>
+	<filename>inc/xajax_js/xajax.js</filename>
+	<filename>inc/xajax_js/xajax_uncompressed.js</filename>
+	<filename>inc/xajax_js/xajaxCompress.php</filename>
+	<filename>images/pleasewait.gif</filename>
+	<filename>helpers/feedgator.php</filename>
+	<filename>models/feed.php</filename>
+	<filename>tables/feed.php</filename>
+	<filename>views/feedgator/view.html.php</filename>
+	<filename>views/feedgator/tmpl/default.php</filename>
+	<filename>views/feedgator/tmpl/default_about.php</filename>
+	<filename>views/feedgator/tmpl/default_new.php</filename>
+	<filename>views/feedgator/tmpl/default_support.php</filename>
+  </files>  
+  <languages folder="admin">
+			<language tag="pl-PL">languages/pl-PL.com_feedgator.ini</language>
+			<language tag="pl-PL">languages/pl-PL.com_feedgator.menu.ini</language>
+	</languages>
+ </administration>
+</install>

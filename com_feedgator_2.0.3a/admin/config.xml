@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+	<params>
+
+		<param name="email_admin" type="radio" default="0" label="Send Email Report" description="Whether or not you want Feed Gator to send a report to an administrator after each import run with details of the processing. This is useful for continuous 'hands-free' monitoring of automated inport runs.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="admin_email" type="text" default="" label="Admin Email Address" description="The email address of the administrator who should receive import reports. This can be a person assigned specifically to monitor the flow of RSS content through your site." />
+
+		<param name="email_subject" type="text" default="" label="Email Subject" description="The text that should be displayed in the subject line of email reports sent to the Feed Gator administrator. You can customize this to work with your email filters and rules." />
+
+		<param name="html_email" type="radio" default="0" label="HTML Email" description="Whether or not you want the import report sent in HTML format...Try it, the HTML email is nice and colorful, and easy to read :)">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="force_fsockopen" type="radio" default="0" label="Force fsockopen" description="The SimplePie parser that Feed Gator uses does not run well on some PHP5.x configurations. If that happens on your server set this option to enabled. If it works ok leave this option disabled.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+		
+		<param name="use_sp_cache" type="radio" default="0" label="Use SimplePie Cache" description="Set this option to 1 if You want to enable SimplePie feeds cache.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+
+		<param name="show_orig_link" type="radio" default="0" label="Show Trackback Link" description="Whether or not you wish to display a link to the originating site in your content items. Displaying the link is generally considered proper etiquitte, and may even be a requirement for using some feeds.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+		
+		
+		
+		<param name="show_html" type="radio" default="0" label="Show HTML Content" description="Whether or not you wish to add html tags to content items (something flash objects or images)">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+		
+		<param name="strip_html_tags" type="radio" default="0" label="Strip HTML tags" description="Whether or not you wish to strip html tags">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		
+		<param name="orig_link_text" type="text" default="Read more:" label="Trackback Link Text" description="The text you would like to display for the link to the originating site. Maybe something like 'Full Story...', or if you're using the verbose option something like 'Read more at:'. With the verbose option, the full URL to the original content will follow the link text, but only the URL will be hyper-linked." />
+
+		<param name="target_frame" type="list" default="none" label="Target Frame" description="The target frame for Trackback Links. The default of 'None' means links will be opened in the current window. In a modern standards compliant and accessible world, it is considered bad form to open links in new windows.">
+
+			<option value="none">None</option>
+
+			<option value="_blank">_blank</option>
+
+			<option value="_parent">_parent</option>
+
+			<option value="_self">_self</option>
+
+			<option value="_top">_top</option>
+
+			<option value="custom">Custom</option>
+
+		</param>
+
+		<param name="custom_frame" type="text" default="" label="Custom Frame" description="The name of a custom frame that Trackback Links should open into. This option has no effect unless Target Frame above is set to 'Custom'." />
+
+		<param name="auto_publish" type="radio" default="0" label="Publish Content Automatically" description="Whether or not content should be set to published status immmediately when it is imported. Use this along with the publish duration parameter below to automate the flow of syndicated content through your site.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="publish_days" type="text" default="0" label="Publish Duration (days)" description="The number of days each content item should remain published. If you set this to 0 or leave it blank, content items will remain published indefinitely. This parameter has no effect if automatic publishing is disabled." />
+
+		<param name="save_author" type="radio" default="0" label="Save Author Alias" description="If set to yes then Feed Gator will look for an 'author' or 'creator' tag on your feeds and save the data in the author_alias field of your content. Not many feeds include this value, however, so if you don't want the author_alias field to be blank, use one of the parameters below. If this option is set to no, then neither of the next two options will have any effect.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="missing_author" type="radio" default="0" label="If Author is Missing" description="What to do in the likely event that an author is not associated with the feed. According to the RSS2.0 specification, all feeds are required to include a 'Title'. Set this option to 'Use Title' if you want Feed Gator to use the feed title as the author_alias on content items that don't specify an author, otherwise choose 'Use Default' and enter a value below (or you can leave it blank).">
+
+			<option value="0">Use Title</option>
+
+			<option value="1">Use Defult</option>
+
+		</param>
+
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+
+		<param name="compute_tags" type="radio" default="0" label="Compute Meta Tags" description="Whether or not meta tags should be extracted from the text of RSS feed content and stored as meta keywords with your content items. There are two types of meta tag computation: 1. The default, which uses a simple word frequency algorithm to compute mete tags, and 2. Yahoo Term Extraction (see below).">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="use_yahoo_te" type="radio" default="0" label="Use Yahoo Term Extraction" description="If set to yes then Feed Gator will use the Yahoo API to analyze and extract relevant terms from RSS content and save them as tags (meta keywords). Relevant terms can be single words or complete phrases, and this method may provide a more effective analysis of feed content than the default word extraction algorithm. This is the recommended meta tag computation method. If this is set to no then the default word extraction is used. To use this feature you MUST PROVIDE A VALID APPLICATION ID (see below). This parameter has no effect if meta tag computation is not enabled.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="yahoo_app_id" type="text" default="feedgatortemp" label="Your Yahoo Application ID" description="Your unique Yahoo Application ID is required to use the term extraction feature. A temporary ID is provided with this component to allow you to test it, but you are STRONGLY ADVISED to obtain your own App ID, because there are limits on the volume of requests that one App ID can make to Yahoo. Getting an App ID is free, very easy and instantaneous: http://api.search.yahoo.com/webservices/register_application The temporary ID I've provided is registered in my name, and if I find that people are abusing it, I will disable it - you have been warned!" />
+
+		<param name="max_tags" type="text" default="5" label="Max Number of Tags" description="The maximum number of tags (meta keywords) to save with your content items. The most relevant N tags are saved (Where N is the number you enter here). This parameter has no effect if meta tag computation is disabled. Leave this blank or set to 0 to save all possible tags, although this would probably be a bad idea." />
+
+		<param name="min_tag_chars" type="text" default="3" label="Min Characters in Tags" description="The minimum number of characters a tag must contain. Larger numbers here might improve the quality and significance of the tags stored with your data. This only has an effect if Compute Meta Tags is enabled." />
+
+		<param name="use_ignore_list" type="radio" default="0" label="Use Ignore List" description="Whether or not to use the built-in ignore words list. The default ignore words list contains the 250 most common English words. Enabling the use of the ignore list can improve the quality of your meta tags by excluding common words. The excluded words list currently cannot be easily edited - this will be improved in a future version.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="ignore_list" type="textarea" default="" rows="3" cols="50" label="Ignore List" description="List of ignore words, use comma as delimitter">
+
+		</param>
+
+		<param name="save_feed_cats" type="radio" default="0" label="Save Feed Categories" description="Some RSS feeds include Subject or Category data for their content. If this parameter is set to yes then Feed Gator will save the categorical information in the feed as tags (meta keywords) with your content items. The parameter is independent of the 'Compute Meta Tags' parameter - one or the other, both, or neither may be enabled, and category tags are not included in the Max Number of Tags parameter above.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+		<param name="save_sect_cats" type="radio" default="0" label="Save Section/Category" description="Set this to yes if you want to store your Joomla section and category names as tags in your imported content. This is similar to the feature found on the Edit Content page of Joomla, except the Feed Gator does not store the Title. This parameter is independent of the 'Compute Meta Tags' parameter - one or the other, both, or neither may be enabled, and category tags are not included in the Max Number of Tags parameter above.">
+
+			<option value="0">No</option>
+
+			<option value="1">Yes</option>
+
+		</param>
+
+	</params>
+
+</config>
+
